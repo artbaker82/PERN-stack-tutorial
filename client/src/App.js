@@ -1,9 +1,15 @@
-import { Fragment } from 'react';
-import './App.css';
-
+import { Fragment } from 'react'
+import './App.css'
+import AddTodo from './components/AddTodo';
+import ListTodos from './components/ListTodos'
 function App() {
   return (
-    <Fragment>Hello World</Fragment>
+    <Fragment>
+      <div className="container">
+        <AddTodo />
+        <ListTodos />
+      </div>
+    </Fragment>
   );
 }
 
