@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const pool = require('./db');
+const pool = require('./db')
+
 //middleware
 app.use(cors())
 //allows us to get json from request.body
