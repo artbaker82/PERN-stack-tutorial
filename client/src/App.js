@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import './App.css'
-import AddTodo from './components/AddTodo';
+import AddTodo from './components/AddTodo'
 import ListTodos from './components/ListTodos'
 function App() {
   return (
