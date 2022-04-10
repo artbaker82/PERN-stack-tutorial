@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useContext } from 'react'
+import { AppContext } from '../App'
 
 const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description)
+  const {handleTodoUpdate: updateParent} = useContext(AppContext)
 
   const handleEdit = async (e) => {
     e.preventDefault()
@@ -12,7 +14,7 @@ const EditTodo = ({ todo }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       })
-      
+      updateParent()
     } catch (err) {
       console.error(err.message)
     }
