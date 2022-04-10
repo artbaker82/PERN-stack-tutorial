@@ -1,21 +1,21 @@
-import React, { Fragment, useState } from 'react'
-
+import React, { Fragment, useState, useContext } from 'react'
+import { AppContext } from '../App'
 
 const AddTodo = () => {
   const [description, setDescription] = useState('')
-
+  const { handleTodoUpdate: updateParent } = useContext(AppContext)
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const body = { description }
-      const response = await fetch('http://localhost:5000/todos', {
+      await fetch('http://localhost:5000/todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       })
-
-      // window.location("/")
-      console.log(response)
+      updateParent()
+      setDescription('')
     } catch (err) {
       console.error(err)
     }
